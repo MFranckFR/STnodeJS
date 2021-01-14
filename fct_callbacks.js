@@ -1,3 +1,5 @@
+const { promises } = require("fs");
+
 // Ex1 - Ecrire une fonction qui permet de vérfier si element appartient à tab.
 var tab = [1,3,6,8,9];
 var elt = 5, elt2 = 9;
@@ -104,4 +106,94 @@ count = (list, val) => list.reduce((acc, elt) => (elt === val ? acc + 1 : acc), 
 tab = [1,3,4,1,4,5,4,4,8,3], elt = 4;
 console.log(`Dans la list [${tab}] il apparait '${elt}' x ${count(tab, elt)}`);
 
+// =================== Notes Damien
+// Les promesses
 
+// declaration de la promesse puis utilisation
+//promesse().then().catch();
+// new Promise((resolv, reject) {})
+
+
+// PROMESSES// un objet JavaScript utilise souvent pour realiser des traitements
+// sur un resultat suite a une operation asynchrone
+// disposant d'une premiere methode then() permettant de traiter
+// le resultat une fois l'operation accomplie
+// disposant d'une deuxieme methode catch() qui sera executee
+// en cas d'echec de l'operation
+// compose de deux parties : declaration et utilisationvar test = true;
+
+// async / await
+console.log("=============\nLes PROMESSES\n=============");
+
+var promesse = new Promise((resolve, reject) => {
+    if (test)
+        resolve();
+     else
+        reject();
+});
+
+promesse.then(() => console.log("test reussi")).catch(() => console.log("erreur")); // ouvar test = true;
+
+var promesse = () => {
+    return new Promise((resolve, reject) => {
+        if (test)
+            resolve();
+         else
+            reject();
+
+    });
+};
+
+promesse().then(() => console.log("test reussi")).catch(() => console.log("erreur")); // Une promesse peut recevoir des parametres et retourner un resultat
+
+var division = (a, b) => {
+    return new Promise((resolve, reject) => {
+        if (b != 0)
+            resolve(a / b);
+         else
+            reject("erreur : division par zero");
+
+    });
+};
+// affiche resultat : 5
+division(10, 2).then((res) => console.log("resultat : " + res)).catch((error) => console.log(error)); // affiche erreur : division par zero
+division(5, 0).then((res) => console.log("resultat : " + res)).catch((error) => console.log(error));
+console.log("fin");
+// =================== /Notes Damien
+
+// transformation d'une fonction en promesse
+somme = (a,b) => a + b;
+var p_somme = async (a,b) => a + b;
+p_somme(12,8).then(result=>console.log(result));
+
+// promesse et temporisation
+var a_somme = (a,b) => {
+    return new Promise((resolve) => {
+        setTimeout(()=>{resolve(a + b)}, 200);
+    })
+}
+var sommeCarre = async(a,b) =>{
+    let s = await a_somme(a,b).then(result=>result);
+    let result = Math.pow(s, 2);
+    return result;
+}
+
+// =================== Notes Damien
+// ASYNC / AWAIT// Pour transformer la fonction somme() en promesse, on ajoute le
+// mot clé async
+var somme = async (a, b) => a + b ;// affiche 5
+somme(2, 3).then(result => console.log(result));// Considerons la promesse somme() qui attend 2 secondes pour retourner un resultat
+var somme = (a, b) => {
+    return new Promise((resolve) => {
+        setTimeout(() => { resolve(a + b) }, 2000);
+    });
+};// On veut implementer une promesse sommeCarre() qui utilise la promesse somme()
+// Solution, utiliser await pour attendre la fin de la premiere promesse
+var sommeCarre = async (a, b) => {
+    let s = await somme(a, b).then(result => result);
+    let result = Math.pow(s, 2);
+    return result;
+};// affiche 25
+sommeCarre(2, 3).then(result => console.log(result));
+
+// =================== /Notes Damien
