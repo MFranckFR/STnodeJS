@@ -64,14 +64,14 @@ console.log(`${elt2} appartient à ${tab} ? ${searchElement({tableau:tab, filtre
 // la fonction retourne 3.
 // avec callback
 function count_occur(s, ss){
-    var m = s.match(new RegExp(ss, 'gi'));
+    const m = s.match(new RegExp(ss, 'gi'));
     return m ? m.length : 0;
 }
 
 function cb_count_occur(data, cb){
-    n = count_occur(data.s, data.ss);
+    const n = count_occur(data.s, data.ss);
     if (n == 0) {
-        cb('La chaine est vide!', null);
+        cb(`Il y a 0 occurance de ${data.ss} dans ${data.s}!`);
     }else {
         cb(null, {s:data.s, ss:data.ss, n:n});
     }
