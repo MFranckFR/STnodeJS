@@ -114,3 +114,47 @@ server.listen(8080);
 
 // output
 //outputs.forEach(o=>console.log(o));
+// function calcul(tab, operator) {
+//     var result = '';
+//     for (var i in tab) {
+//         result = result + operator + tab[i];
+//     }
+//     return eval(result.substr(1));
+// }// var server = http.createServer(function (req, res) {
+//     var pathname = url.parse(req.url).pathname;
+//     var params = querystring.parse(url.parse(req.url).query);
+//     res.writeHead(200, { 'Content-type': 'text/plain' });
+//     var result;
+//     if (pathname === '/addition') {
+//         result = calcul(params, '+');
+//     } else if (pathname === '/soustraction') {
+//         result = calcul(params, '-');
+//     } else if (pathname === '/multiplication') {
+//         result = calcul(params, '*');
+//     } else if (pathname === '/division') {
+//         result = calcul(params, '/');
+//     }
+//     res.write('Resultat : ' + result);
+//     res.end();
+// });// var add = (a, b) => a + b;
+// var sous = (a, b) => a - b;
+// var div = (a, b) => a / b;
+// var mul = (a, b) => a * b;// var server = http.createServer(function (req, res) {
+//     var pathname = url.parse(req.url).pathname;
+//     var params = querystring.parse(url.parse(req.url).query);
+//     res.writeHead(200, { 'Content-type': 'text/plain' });
+//     var result;//     if ('a' in params && 'b' in params) {
+//         if (pathname === '/addition') {
+//             var a = parseInt(params['a']);
+//             var b = parseInt(params['b']);
+//             result = add(a, b);
+//         } else if (pathname === '/soustraction') {
+//             result = sous(params['a'], params['b']);
+//         } else if (pathname === '/multiplication') {
+//             result = mul(params['a'], params['b']);
+//         } else if (pathname === '/division') {
+//             result = div(params['a'], params['b']);
+//         }
+//     }//     res.write('Resultat : ' + result);
+//     res.end();
+// });
