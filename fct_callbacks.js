@@ -134,18 +134,6 @@ var promesse = new Promise((resolve, reject) => {
 
 promesse.then(() => console.log("test reussi")).catch(() => console.log("erreur")); // ouvar test = true;
 
-var promesse = () => {
-    return new Promise((resolve, reject) => {
-        if (test)
-            resolve();
-         else
-            reject();
-
-    });
-};
-
-promesse().then(() => console.log("test reussi")).catch(() => console.log("erreur")); // Une promesse peut recevoir des parametres et retourner un resultat
-
 var division = (a, b) => {
     return new Promise((resolve, reject) => {
         if (b != 0)
