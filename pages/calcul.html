@@ -1,0 +1,13 @@
+<div class="calcul">
+    <form action="" method="get" name="calculator">
+        <p class="calcul">Saisissez une opération,<br/>par exemple  1+3*5-5</p>
+     <fieldset for="calcul">Opération</fieldset>   <input type="text" value="{{calcul}}" name="calcul" />
+        <input type="submit" name="btnSubmit" value="Calculer" />
+    </form>
+    <p class="calcul">
+        <span>Résultat</span>
+        <span class="un">{{calcul}}</span>
+        <span class="deux"> = </span>
+        <span class="trois"><strong>{{resultat}}</strong></span>
+    </p>
+</div>
