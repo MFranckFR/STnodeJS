@@ -1,0 +1,67 @@
+html {
+    height: 100%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+.un {
+    border: 1px solid #ff0000;
+    margin: 10px;
+    padding: 10px;
+}
+.deux {
+    border: 1px solid #00ff00;
+    margin: 2px;
+    padding: 2px;
+}
+.trois {
+    border: 1px solid #0000ff;
+    margin: 10px;
+    padding: 10px;
+}
+
+p {
+  display: inline-block;
+    text-align: left;
+    background: #dce;
+
+    width: 100pt;
+    padding: 20pt;
+    margin: 20pt;
+}
+
+div.calcul {
+  display:inline-block;
+  background: violet;
+
+}
+.calcul form {
+  text-align: center;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  background: transparent;
+}
+.calcul input[type='submit']{
+  cursor:pointer;
+  background-color: #c382ee;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+.calcul input[type='text']{
+  background-color: #efefef;
+  text-align: right;
+}
+
+p.calcul {
+    display: block;
+    text-align: center;
+    background: #e59ce2;
+    width:unset;
+}
